@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCustomerComponent } from './customers/create-customer/create-customer.component';
+import { AddPinComponent } from './pins/add-pin/add-pin.component';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,24 @@ import { CreateCustomerComponent } from './customers/create-customer/create-cust
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  isModalOpen = false;
+  isCustomerModalOpen = false;
+  isAddPinModalOpen = false;
 
   constructor(private modalService: NgbModal) {}
 
-  open() {
+  openCustomerModal() {
     this.modalService.open(CreateCustomerComponent);
   }
 
-  closeModal() {
-    this.isModalOpen = false;
+  closeCustomerModal() {
+    this.isCustomerModalOpen = false;
+  }
+
+  openAddPinModal() {
+    this.modalService.open(AddPinComponent);
+  }
+
+  closeAddPinModal() {
+    this.isAddPinModalOpen = false;
   }
 }

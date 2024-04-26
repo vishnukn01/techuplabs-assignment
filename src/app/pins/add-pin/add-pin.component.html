@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Pin</h4>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+    (click)="close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="pinTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="pinTitle" required />
+    </div>
+    <div class="mb-3">
+      <label for="pinImage" class="form-label">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="pinImage"
+        accept="image/*"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="pinCollaborators" class="form-label">Collaborators</label>
+      <select class="form-select" id="pinCollaborators" multiple required>
+        <option value="" selected disabled>Select Collaborators</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Privacy</label>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="pinPrivacy"
+          id="publicRadio"
+          value="public"
+          checked
+        />
+        <label class="form-check-label" for="publicRadio">Public</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="pinPrivacy"
+          id="privateRadio"
+          value="private"
+        />
+        <label class="form-check-label" for="privateRadio">Private</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Pin</button>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-secondary"
+    data-bs-dismiss="modal"
+    (click)="close()"
+  >
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Save</button>
+</div>

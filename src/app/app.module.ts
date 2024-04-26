@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCustomerComponent } from './customers/create-customer/create-customer.component';
+import { AddPinComponent } from './pins/add-pin/add-pin.component';
 
 @NgModule({
-  declarations: [AppComponent, CreateCustomerComponent],
+  declarations: [AppComponent, CreateCustomerComponent, AddPinComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,10 +1,20 @@
 <div class="container my-3">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-end">
-      <button type="button" class="btn btn-primary mx-2" (click)="open()">
+      <button
+        type="button"
+        class="btn btn-primary mx-2"
+        (click)="openCustomerModal()"
+      >
         + Add Customer
       </button>
-      <button type="button" class="btn btn-primary mx-2">+ Add Pin</button>
+      <button
+        type="button"
+        class="btn btn-primary mx-2"
+        (click)="openAddPinModal()"
+      >
+        + Add Pin
+      </button>
     </div>
   </div>
   <hr />
@@ -32,16 +42,26 @@
   </div>
 </div>
 
+<!--Create customer modal-->
 <div
   class="modal fade"
-  id="my-modal"
+  id="create-customer-modal"
   tabindex="-1"
-  [ngClass]="{ show: isModalOpen }"
+  [ngClass]="{ show: isCustomerModalOpen }"
 >
   <div class="modal-dialog">
-    <app-create-customer *ngIf="isModalOpen"></app-create-customer>
+    <app-create-customer *ngIf="isCustomerModalOpen"></app-create-customer>
   </div>
 </div>
-<!-- <button type="button" class="btn btn-danger" (click)="closeModal()">
-  Close Modal
-</button> -->
+
+<!--add pin modal-->
+<div
+  class="modal fade"
+  id="add-pin-modal"
+  tabindex="-1"
+  [ngClass]="{ show: isAddPinModalOpen }"
+>
+  <div class="modal-dialog">
+    <app-add-pin *ngIf="isAddPinModalOpen"></app-add-pin>
+  </div>
+</div>
