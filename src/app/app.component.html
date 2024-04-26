@@ -1,1 +1,47 @@
-<h1>Hello WOrld</h1>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-end">
+      <button type="button" class="btn btn-primary mx-2" (click)="open()">
+        + Add Customer
+      </button>
+      <button type="button" class="btn btn-primary mx-2">+ Add Pin</button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Collaborators</th>
+            <th>Privacy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pin 1</td>
+            <td></td>
+            <td>Customer 1, Customer 2</td>
+            <td>Public</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="my-modal"
+  tabindex="-1"
+  [ngClass]="{ show: isModalOpen }"
+>
+  <div class="modal-dialog">
+    <app-create-customer *ngIf="isModalOpen"></app-create-customer>
+  </div>
+</div>
+<!-- <button type="button" class="btn btn-danger" (click)="closeModal()">
+  Close Modal
+</button> -->

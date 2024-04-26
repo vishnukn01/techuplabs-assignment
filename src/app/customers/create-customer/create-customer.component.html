@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create Customer</h4>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+    (click)="close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="customerName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="customerName" required />
+    </div>
+    <div class="mb-3">
+      <label for="customerEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="customerEmail" required />
+    </div>
+    <div class="mb-3">
+      <label for="customerRegion" class="form-label">Region</label>
+      <select class="form-select" id="customerRegion" required>
+        <option value="" selected>Select Region</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="customerCountry" class="form-label">Country</label>
+      <select class="form-select" id="customerCountry" required>
+        <option value="">Country</option>
+      </select>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-secondary"
+    data-bs-dismiss="modal"
+    (click)="close()"
+  >
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Save</button>
+</div>
