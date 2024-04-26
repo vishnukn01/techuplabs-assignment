@@ -9,37 +9,98 @@
   ></button>
 </div>
 <div class="modal-body">
-  <form>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="mb-3">
-      <label for="customerName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="customerName" required />
+      <label for="customerTitle" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="customerTitle"
+        ngModel
+        name="title"
+        required
+        #name="ngModel"
+      />
+      <span class="help-block text-danger" *ngIf="!name.valid && name.touched"
+        >This field is required</span
+      >
     </div>
     <div class="mb-3">
       <label for="customerEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="customerEmail" required />
+      <input
+        type="email"
+        class="form-control"
+        id="customerEmail"
+        ngModel
+        name="email"
+        required
+        email
+        #email="ngModel"
+      />
+      <span class="help-block text-danger" *ngIf="!email.valid && email.touched"
+        >Please enter a valid email</span
+      >
     </div>
     <div class="mb-3">
       <label for="customerRegion" class="form-label">Region</label>
-      <select class="form-select" id="customerRegion" required>
+      <select
+        class="form-select"
+        id="customerRegion"
+        ngModel
+        name="region"
+        required
+        #regionSelect="ngModel"
+      >
         <option value="" selected>Select Region</option>
+        <ng-container *ngFor="let region of regions">
+          <option [value]="region | lowercase" selected>{{ region }}</option>
+        </ng-container>
       </select>
+      <span
+        class="help-block text-danger"
+        *ngIf="!regionSelect.valid && regionSelect.touched"
+        >Please select a region</span
+      >
     </div>
     <div class="mb-3">
       <label for="customerCountry" class="form-label">Country</label>
-      <select class="form-select" id="customerCountry" required>
-        <option value="">Country</option>
+      <select
+        class="form-select"
+        id="customerCountry"
+        ngModel
+        name="country"
+        required
+        [disabled]="!regionSelect.valid"
+        #countrySelect="ngModel"
+      >
+        <option value="">Select Country</option>
+        <ng-container *ngFor="let country of countries">
+          <option
+            *ngIf="country[2].toLowerCase() == regionSelect.value"
+            [value]="country[0]"
+          >
+            {{ country[1] }}
+          </option>
+        </ng-container>
       </select>
+      <span
+        class="help-block text-danger"
+        *ngIf="!countrySelect.valid && countrySelect.touched"
+        >Please select a country</span
+      >
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+        (click)="close()"
+      >
+        Close
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+        Save
+      </button>
     </div>
   </form>
-</div>
-<div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-bs-dismiss="modal"
-    (click)="close()"
-  >
-    Close
-  </button>
-  <button type="button" class="btn btn-primary">Save</button>
 </div>

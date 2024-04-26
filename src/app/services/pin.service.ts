@@ -6,4 +6,8 @@ import { CustomerService } from './customer.service';
 })
 export class PinService {
   constructor(private customerService: CustomerService) {}
+
+  createPin() {}
+
+  listPins() {}
 }
