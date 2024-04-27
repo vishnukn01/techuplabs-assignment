@@ -9,10 +9,17 @@
   ></button>
 </div>
 <div class="modal-body">
-  <form>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="pinTitle" class="form-label">Title</label>
-      <input type="text" class="form-control" id="pinTitle" required />
+      <input
+        type="text"
+        class="form-control"
+        id="pinTitle"
+        ngModel
+        name="title"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="pinImage" class="form-label">Image</label>
@@ -21,18 +28,25 @@
         class="form-control"
         id="pinImage"
         accept="image/*"
-        required
+        ngModel
+        name="image"
       />
     </div>
     <div class="mb-3">
       <label for="pinCollaborators" class="form-label">Collaborators</label>
-      <select class="form-select" id="pinCollaborators" multiple required>
+      <select
+        class="form-select"
+        id="pinCollaborators"
+        multiple
+        ngModel
+        name="collaborators"
+      >
         <option value="" selected disabled>Select Collaborators</option>
       </select>
     </div>
     <div class="mb-3">
       <label class="form-label">Privacy</label>
-      <div class="form-check form-check-inline">
+      <div class="form-check">
         <input
           class="form-check-input"
           type="radio"
@@ -40,6 +54,7 @@
           id="publicRadio"
           value="public"
           checked
+          ngModel
         />
         <label class="form-check-label" for="publicRadio">Public</label>
       </div>
@@ -50,21 +65,21 @@
           name="pinPrivacy"
           id="privateRadio"
           value="private"
+          ngModel
         />
         <label class="form-check-label" for="privateRadio">Private</label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save Pin</button>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+        (click)="close()"
+      >
+        Close
+      </button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
   </form>
-</div>
-<div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-bs-dismiss="modal"
-    (click)="close()"
-  >
-    Close
-  </button>
-  <button type="button" class="btn btn-primary">Save</button>
 </div>
