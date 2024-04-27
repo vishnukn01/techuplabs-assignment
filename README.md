@@ -12,6 +12,10 @@ Starting the app
 
 1. In another terminal, run `npm install` and `npm run start`
 
+# Screenshots
+
+![App Screenshot](https://i.imgur.com/3lx67AH.png)
+
 # TechuplabsAssignment
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
