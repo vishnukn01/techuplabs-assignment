@@ -1,3 +1,17 @@
+# Getting Started
+
+**This project contains an small image server to store and retrieve images. Make sure to startthe server before running the project by running npm install and node start in the image-server folder.**
+
+Start the image server
+
+1. cd image-server
+2. Run `npm install`
+3. Run `node start`
+
+Starting the app
+
+1. In another terminal, run `npm install` and `npm run start`
+
 # TechuplabsAssignment
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
