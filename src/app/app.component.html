@@ -18,50 +18,28 @@
     </div>
   </div>
   <hr />
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Collaborators</th>
-            <th>Privacy</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Pin 1</td>
-            <td></td>
-            <td>Customer 1, Customer 2</td>
-            <td>Public</td>
-          </tr>
-        </tbody>
-      </table>
+  <app-list-pins></app-list-pins>
+  <!--Create customer modal-->
+  <div
+    class="modal fade"
+    id="create-customer-modal"
+    tabindex="-1"
+    [ngClass]="{ show: isCustomerModalOpen }"
+  >
+    <div class="modal-dialog">
+      <app-create-customer *ngIf="isCustomerModalOpen"></app-create-customer>
     </div>
   </div>
-</div>
 
-<!--Create customer modal-->
-<div
-  class="modal fade"
-  id="create-customer-modal"
-  tabindex="-1"
-  [ngClass]="{ show: isCustomerModalOpen }"
->
-  <div class="modal-dialog">
-    <app-create-customer *ngIf="isCustomerModalOpen"></app-create-customer>
-  </div>
-</div>
-
-<!--add pin modal-->
-<div
-  class="modal fade"
-  id="add-pin-modal"
-  tabindex="-1"
-  [ngClass]="{ show: isAddPinModalOpen }"
->
-  <div class="modal-dialog">
-    <app-add-pin *ngIf="isAddPinModalOpen"></app-add-pin>
+  <!--add pin modal-->
+  <div
+    class="modal fade"
+    id="add-pin-modal"
+    tabindex="-1"
+    [ngClass]="{ show: isAddPinModalOpen }"
+  >
+    <div class="modal-dialog">
+      <app-add-pin *ngIf="isAddPinModalOpen"></app-add-pin>
+    </div>
   </div>
 </div>
