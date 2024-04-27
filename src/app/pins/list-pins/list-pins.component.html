@@ -12,7 +12,13 @@
       <tbody>
         <tr *ngFor="let pin of pins">
           <td>{{ pin.title }}</td>
-          <td></td>
+          <td>
+            <img
+              [src]="pin.image"
+              class="img-responsive"
+              style="max-height: 150px"
+            />
+          </td>
           <td>{{ pin.collaborators }}</td>
           <td>{{ pin.privacy }}</td>
         </tr>

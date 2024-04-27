@@ -23,15 +23,31 @@
     </div>
     <div class="mb-3">
       <label for="pinImage" class="form-label">Image</label>
-      <input
+      <!-- <input
         type="file"
         class="form-control"
         id="pinImage"
         accept="image/*"
         ngModel
         name="image"
-      />
+      /> -->
+      <div
+        ng2FileDrop
+        [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+        (onFileOver)="fileOverBase($event)"
+        (onFileDrop)="fileDropBase($event)"
+        [uploader]="uploader"
+        class="well my-drop-zone"
+      >
+        Drag and drop your image here
+      </div>
+
+      <div *ngFor="let img of uploadedImages">
+        <img class="m-1 img-responsive" [src]="img" style="max-height: 100px" />
+        <input type="hidden" [ngModel]="img" name="image" />
+      </div>
     </div>
+
     <div class="mb-3">
       <label for="pinCollaborators" class="form-label">Collaborators</label>
       <ngx-select
@@ -52,6 +68,7 @@
           value="public"
           checked
           ngModel
+          required
         />
         <label class="form-check-label" for="publicRadio">Public</label>
       </div>
@@ -63,6 +80,7 @@
           id="privateRadio"
           value="private"
           ngModel
+          required
         />
         <label class="form-check-label" for="privateRadio">Private</label>
       </div>
