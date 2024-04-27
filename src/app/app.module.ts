@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PinsModule } from './pins/pins.module';
 import { ListPinsComponent } from './pins/list-pins/list-pins.component';
 import { NgxSelectModule } from 'ngx-select-ex';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgxSelectModule } from 'ngx-select-ex';
     FormsModule,
     HttpClientModule,
     NgxSelectModule,
+    FileUploadModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
