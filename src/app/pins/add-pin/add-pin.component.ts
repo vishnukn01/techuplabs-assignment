@@ -14,6 +14,9 @@ export class AddPinComponent implements OnInit {
   addPinForm!: NgForm;
 
   customers: any[] = [];
+  collaboratorsSelected: any[] = [];
+  public ngxValue: any = [];
+  public ngxDisabled = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -21,16 +24,19 @@ export class AddPinComponent implements OnInit {
     private customerService: CustomerService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.customers = this.customerService.getCustomers().map((customer) => {
+      return customer.title;
+    });
+  }
 
   onSubmit() {
     const pin = this.addPinForm.value;
-    console.log('pin', pin);
     this.pinService.createPin(pin);
     this.activeModal.close();
   }
 
   close() {
-    this.activeModal.close('Modal closed');
+    this.activeModal.close();
   }
 }
