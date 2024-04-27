@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PinsModule } from './pins/pins.module';
 import { ListPinsComponent } from './pins/list-pins/list-pins.component';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ListPinsComponent } from './pins/list-pins/list-pins.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    NgxSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

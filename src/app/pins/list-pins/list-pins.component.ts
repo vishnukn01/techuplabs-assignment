@@ -13,8 +13,8 @@ export class ListPinsComponent {
 
   ngOnInit() {
     this.pins = this.pinService.listPins();
-    this.pinService.pins$.subscribe((x) => {
-      this.pins = x;
+    this.pinService.pins$.subscribe((pins) => {
+      this.pins = pins;
     });
   }
 }

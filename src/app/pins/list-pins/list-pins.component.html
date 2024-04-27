@@ -13,8 +13,8 @@
         <tr *ngFor="let pin of pins">
           <td>{{ pin.title }}</td>
           <td></td>
-          <td>Customer 1, Customer 2</td>
-          <td>Public</td>
+          <td>{{ pin.collaborators }}</td>
+          <td>{{ pin.privacy }}</td>
         </tr>
       </tbody>
     </table>
