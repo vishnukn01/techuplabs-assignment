@@ -19,18 +19,15 @@
         ngModel
         name="title"
         required
+        #name="ngModel"
       />
+      <span class="help-block text-danger" *ngIf="!name.valid && name.touched"
+        >This field is required</span
+      >
     </div>
     <div class="mb-3">
       <label for="pinImage" class="form-label">Image</label>
-      <!-- <input
-        type="file"
-        class="form-control"
-        id="pinImage"
-        accept="image/*"
-        ngModel
-        name="image"
-      /> -->
+
       <div
         ng2FileDrop
         [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
@@ -38,6 +35,7 @@
         (onFileDrop)="fileDropBase($event)"
         [uploader]="uploader"
         class="well my-drop-zone"
+        required
       >
         Drag and drop your image here
       </div>
@@ -69,6 +67,7 @@
           checked
           ngModel
           required
+          #privacyControl="ngModel"
         />
         <label class="form-check-label" for="publicRadio">Public</label>
       </div>
@@ -81,9 +80,15 @@
           value="private"
           ngModel
           required
+          #privacyControl="ngModel"
         />
         <label class="form-check-label" for="privateRadio">Private</label>
       </div>
+      <span
+        class="help-block text-danger"
+        *ngIf="!privacyControl.valid && privacyControl.touched"
+        >This field is required</span
+      >
     </div>
     <div class="modal-footer">
       <button
@@ -94,7 +99,9 @@
       >
         Close
       </button>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+        Save
+      </button>
     </div>
   </form>
 </div>
