@@ -39,15 +39,12 @@ export class AddPinComponent implements OnInit {
 
     this.uploader.response.subscribe((res: string) => {
       const respObj: string[] = JSON.parse(res);
-      console.log('uploader res', respObj, typeof respObj);
       respObj.map((x) => this.uploadedImages.push(AppConfig.imageBaseUrl + x));
-      console.log('uploadedImages', this.uploadedImages);
       this.response = respObj;
     });
   }
 
   ngOnInit(): void {
-    console.log('uploadedimages', this.uploadedImages);
     this.customers = this.customerService.getCustomers().map((customer) => {
       return customer.title;
     });
