@@ -1,5 +1,8 @@
 <div class="modal-header">
-  <h4 class="modal-title">Add Pin</h4>
+  <h4 class="modal-title">
+    Add Pin<br />
+    <p class="text-muted text-danger">All fields are required</p>
+  </h4>
   <button
     type="button"
     class="btn-close"
@@ -99,7 +102,15 @@
       >
         Close
       </button>
-      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="
+          !f.valid ||
+          uploadedImages.length == 0 ||
+          collaboratorsSelected.length == 0
+        "
+      >
         Save
       </button>
     </div>

@@ -17,3 +17,7 @@ input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+.text-muted.text-danger {
+  font-size: small !important;
+  color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
