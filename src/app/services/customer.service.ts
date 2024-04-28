@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Customers } from '../models/customers';
 import { LocalStorageService } from './local-storage.service';
 import { Customer } from '../models/customer';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
+  customerCreated$: Subject<boolean> = new Subject<boolean>();
+
   constructor(private localStorageService: LocalStorageService) {}
 
   createCustomer(customer: Customer): void {
@@ -27,6 +30,7 @@ export class CustomerService {
         'customers',
         JSON.stringify(existingCustomers)
       );
+      this.customerCreated$.next(true);
     } catch (error) {
       console.error('Error saving customer data to localStorage:', error);
     }
